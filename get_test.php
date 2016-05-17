@@ -1,12 +1,20 @@
 <?php
-$url = 'http://www.yahoo.co.jp/';
+require 'vendor/autoload.php';
+$url = 'https://app.rakuten.co.jp/services/api/Travel/VacantHotelSearch/20131024?';
  
-$options = array(
-    'http' => array('ignore_errors' => true)
-);
-$context = stream_context_create($options);
- 
-$result = file_get_contents($url, false, $context);
- 
-var_dump($result);
-var_dump($http_response_header);
+$client = new GuzzleHttp\Client(['base_uri' => $url]);
+
+$response = $client->request('GET', '',['query'=>[
+												'applicationId' => '1074234954336267145', 
+												'format' => 'json',
+												'largeClassCode' => 'japan',
+												'middleClassCode' => 'akita',
+												'smallClassCode' => 'tazawa',
+												'checkinDate' => '2016-08-01',
+												'checkoutDate' => '2016-08-03',
+												]
+									]);
+
+var_dump((string)$response->getBody());
+// jsonを配列に変換する
+// 空き部屋がある場合、値段だけを表示する
