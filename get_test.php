@@ -15,12 +15,17 @@ $response = $client->request('GET', '',['query'=>[
 												]
 									]);
 
-$arr = json_decode($response,true);
+$body = $response->getBody();
+//echo $body;
+$stringBpdy = (string) $body;
+$tenBytes = $body->read(10);
+//$remainingBytes = $body->getContens();
+$arr = json_decode($stringBpdy);
 var_dump($arr);
 exit;
 //$result = $arr["roomBasicInfo"]["roomClass"];
 
-var_dump((string)$result->getBody());
+//var_dump($result->getBody());
 // jsonを配列に変換する
 // 空き部屋がある場合、値段だけを表示する
 
