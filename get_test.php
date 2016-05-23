@@ -18,7 +18,7 @@ $response = $client->request('GET', '',['query'=>[
 $arr = json_decode($response,true);
 var_dump($arr);
 exit;
-$result = $arr["roomBasicInfo"]["roomClass"];
+//$result = $arr["roomBasicInfo"]["roomClass"];
 
 var_dump((string)$result->getBody());
 // jsonを配列に変換する
