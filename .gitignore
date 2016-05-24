@@ -1,3 +1,8 @@
+# Local
+logs/*
+!logs/.keep
+.env
+
 # Composer
 composer.phar
 composer.lock
