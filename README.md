@@ -1,4 +1,4 @@
-# The Code for REST Traning
+# The Code for REST Training
 
 Description
 ---
@@ -31,13 +31,3 @@ $ cd {ROOT_PATH}
 $ php composer.phar self-update; php composer.phar update # If you need there.
 $ php src/cmd/run.php
 ```
-
-License
----
-
-Copyright (C) TravelBook.
-
-Author
----
-
-* Osuhi <takagi@travelbook.co.jp>
