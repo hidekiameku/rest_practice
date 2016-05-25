@@ -17,9 +17,9 @@ class client
   public function fetch($path, $method, $query = null)
   {
     if (!is_null($query)) {
-      $res = $this->_client->get($path, ['query' => $query]);
+      $res = $this->_client->$method($path, ['query' => $query]);
     } else {
-      $res = $this->_client->get($path);
+      $res = $this->_client->$method($path);
     }
 
     if ($res->getStatusCode() === 200) {
